@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retail-sales-analytics"
+version = "1.0.0"
+description = "Reproducible analytics and sales forecasting for UCI Online Retail"
+requires-python = ">=3.10"
+dependencies = [
+    "joblib>=1.3",
+    "matplotlib>=3.7",
+    "openpyxl>=3.1",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "seaborn>=0.13",
+    "streamlit>=1.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "ruff>=0.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
